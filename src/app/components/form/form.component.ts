@@ -10,11 +10,18 @@ import { PostsService } from '../../services/posts.service';
   styleUrl: './form.component.css'
 })
 export class FormComponent {
-    newPost: IPost = { id: 0, title: '', url: '', author: '', date: '', body: '' };
-
     postsService = inject(PostsService);
+    guardarPost(form: any) {
+      if(form.value.title !== "" && form.value.author !== "" && form.value.date !== "" && form.value.body !== "" && form.value.url !== "")  {
+        let response = this.postsService.insert(form.value);
+        alert(response);
+        form.reset();
+      }else {
+        alert('Todos los campos son obligatorios');
+      }
+    }
 
-    guardarPost() {
+    /*guardarPost() {
       if(this.newPost.title !== "" && this.newPost.author !== "" && this.newPost.date !== "" && this.newPost.body !== "" && this.newPost.url !== "") {
         //puedo insertar el elemento en el array
         //this.newPost.id = this.id;
@@ -29,6 +36,6 @@ export class FormComponent {
       } else {
         alert('Todos los campos son obligatorios');
       }
-    }
+    }*/
 
 }
