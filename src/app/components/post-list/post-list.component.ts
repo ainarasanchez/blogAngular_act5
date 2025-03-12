@@ -1,11 +1,11 @@
-import { DatePipe } from '@angular/common';
 import { Component, inject } from '@angular/core';
 import { IPost } from '../../interfaces/ipost.interface';
 import { PostsService } from '../../services/posts.service';
+import { PostCardComponent } from "../post-card/post-card.component";
 
 @Component({
   selector: 'app-post-list',
-  imports: [DatePipe],
+  imports: [PostCardComponent],
   templateUrl: './post-list.component.html',
   styleUrl: './post-list.component.css'
 })
