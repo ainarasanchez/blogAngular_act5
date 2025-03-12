@@ -10,14 +10,13 @@ import { FormsModule } from '@angular/forms';
 })
 export class FormComponent {
     newPost: IPost = { id: 0, title: '', url: '', author: '', date: '', body: '' };
-    id: number = 1;
 
     guardarPost() {
       if(this.newPost.title !== "" && this.newPost.author !== "" && this.newPost.date !== "" && this.newPost.body !== "" && this.newPost.url !== "") {
         // puedo insertar el elemento en el array
-        this.newPost.id = this.id;
+        //this.newPost.id = this.id;
         //this.arrPosts.push(this.newPost);
-        this.id++;
+        //this.id++;
         this.newPost = { id: 0, title: '', url: '', author: '', date: '', body: '' };
       } else {
         alert('Todos los campos son obligatorios');

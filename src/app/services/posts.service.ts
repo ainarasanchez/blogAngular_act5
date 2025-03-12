@@ -33,7 +33,16 @@ export class PostsService {
     }
   ];
 
+  id: number = 1;
+
   getAll(): IPost[] {
     return this.arrPosts;
+  }
+
+  insert(newPost: IPost) : any {
+    newPost.id = this.id;
+    this.arrPosts.push(newPost);
+    this.id++;
+    return "Publicación insertada correctamente";
   }
 }
