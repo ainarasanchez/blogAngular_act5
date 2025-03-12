@@ -12,7 +12,7 @@ export class BlogComponent {
     {
         id: 1,
         title: 'Primera Publicación',
-        url: 'https://example.com/primera-publicacion',
+        url: 'https://www.costacruceros.es/content/dam/costa/costa-magazine/articles-magazine/travel/crete-travel/creta_m.jpg.image.694.390.low.jpg',
         author: 'Autor Uno',
         date: '2025-03-12',
         body: 'Este es el contenido de la primera publicación.'
@@ -20,7 +20,7 @@ export class BlogComponent {
     {
         id: 2,
         title: 'Segunda Publicación',
-        url: 'https://example.com/segunda-publicacion',
+        url: 'https://www.costacruceros.es/content/dam/costa/costa-magazine/articles-magazine/travel/crete-travel/creta_m.jpg.image.694.390.low.jpg',
         author: 'Autor Dos',
         date: '2025-03-11',
         body: 'Este es el contenido de la segunda publicación.'
@@ -28,11 +28,33 @@ export class BlogComponent {
     {
         id: 3,
         title: 'Tercera Publicación',
-        url: 'https://example.com/tercera-publicacion',
+        url: 'https://www.costacruceros.es/content/dam/costa/costa-magazine/articles-magazine/travel/crete-travel/creta_m.jpg.image.694.390.low.jpg',
         author: 'Autor Tres',
         date: '2025-03-10',
         body: 'Este es el contenido de la tercera publicación.'
     }
   ];
 
-}
+  ngOnInit() {
+    this.getData();
+
+    }
+
+  getData(): string {
+      let html = '';
+      this.arrPosts.forEach( post => {
+        html += `<article>
+            <figure>
+                <img src="${post.url}" alt="${post.title}">
+            </figure>
+            <h3>${post.title}</h3>
+            <p>Autor: ${post.author}</p>
+            <p>Fecha: ${post.date}</p>
+            <div class="content">
+                <p>${post.body}</p>
+            </div>   
+        </article>`
+      })
+      return html;
+  }
+  }
