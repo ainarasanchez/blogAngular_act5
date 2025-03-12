@@ -33,7 +33,7 @@ export class PostsService {
     }
   ];
 
-  id: number = 4;
+  private id: number = 4;
 
   getAll(): IPost[] {
     return this.arrPosts;
