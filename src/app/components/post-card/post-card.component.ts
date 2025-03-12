@@ -1,11 +1,13 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { IPost } from '../../interfaces/ipost.interface';
+import { DatePipe } from '@angular/common';
 
 @Component({
   selector: 'app-post-card',
-  imports: [],
+  imports: [DatePipe],
   templateUrl: './post-card.component.html',
   styleUrl: './post-card.component.css'
 })
 export class PostCardComponent {
-
+  @Input() miPost!: IPost;
 }
