@@ -1,12 +1,14 @@
-@for( post of arrPosts; track post.id) {
-    <article>
-        <figure>
-            <img [src]="post.url" alt="post.title">
-        </figure>
-        <h3>{{post.title}}</h3>
-        <p>Autor: {{post.author}}</p>
-        <p>Fecha: {{post.date | date: 'dd/MM/YY'}}</p>
-        <div class="content" [innerHTML]="post.body">
-        </div>
-    </article>
+<div class="grid">
+    @for( post of arrPosts; track post.id) {
+        <article>
+            <figure>
+                <img [src]="post.url" alt="post.title">
+            </figure>
+            <h3>{{post.title}}</h3>
+            <p>Autor: {{post.author}}</p>
+            <p>Fecha: {{post.date | date: 'dd/MM/YY'}}</p>
+            <div class="content" [innerHTML]="post.body">
+            </div>
+        </article>
 }
+</div>
