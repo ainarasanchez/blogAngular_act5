@@ -12,43 +12,20 @@
 
     <h2>Mis viajes preferidos</h2>
     <hr>
-    <div class="grid" [innerHTML]="getData()">
-     <!--   <article>
-            <figure>
-                <img src="https://www.costacruceros.es/content/dam/costa/costa-magazine/articles-magazine/travel/crete-travel/creta_m.jpg.image.694.390.low.jpg" alt="Creta">
-            </figure>
-            <h3>Viaje a la isla de Creta</h3>
-            <p>Autor: Ainara Sanchez</p>
-            <p>Fecha: 25/02/2025</p>
-            <div class="content">
-                <p>Lorem ipsum dolor</p>
-            </div>
-            
-        </article>
+    <!-- <div class="grid" [innerHTML]="getData()"> -->
+    <div class="grid">
+        @for( post of arrPosts; track post.id) {
         <article>
             <figure>
-                <img src="https://www.costacruceros.es/content/dam/costa/costa-magazine/articles-magazine/travel/crete-travel/creta_m.jpg.image.694.390.low.jpg" alt="Creta">
+                <img [src]="post.url" alt="post.title">
             </figure>
-            <h3>Viaje a la isla de Creta</h3>
-            <p>Autor: Ainara Sanchez</p>
-            <p>Fecha: 25/02/2025</p>
-            <div class="content">
-                <p>Lorem ipsum dolor</p>
+            <h3>{{post.title}}</h3>
+            <p>Autor: {{post.author}}</p>
+            <p>Fecha: {{post.date | date: 'dd/MM/YY'}}</p>
+            <div class="content" [innerHTML]="post.body">
             </div>
-            
         </article>
-        <article>
-            <figure>
-                <img src="https://www.costacruceros.es/content/dam/costa/costa-magazine/articles-magazine/travel/crete-travel/creta_m.jpg.image.694.390.low.jpg" alt="Creta">
-            </figure>
-            <h3>Viaje a la isla de Creta</h3>
-            <p>Autor: Ainara Sanchez</p>
-            <p>Fecha: 25/02/2025</p>
-            <div class="content">
-                <p>Lorem ipsum dolor</p>
-            </div>
-            
-        </article> -->
+    }
     </div>
 
 </section>
