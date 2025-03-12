@@ -1,31 +1,7 @@
 <section class="blog">
-    <section class="sectionform">
-        <div class="form">
-            <input type="text" placeholder="Introduce el título de la noticia" [(ngModel)]="newPost.title">
-            <input type="text" placeholder="Introduce el autor de la noticia" [(ngModel)]="newPost.author">
-            <input type="date" placeholder="Introduce la fecha" [(ngModel)]="newPost.date">
-            <input type="text" placeholder="Introduce la url de la imagen" [(ngModel)]="newPost.url">
-            <textarea name="" id="" rows="10" [(ngModel)]="newPost.body"></textarea>
-            <button (click)="guardarPost()">Guardar</button>
-        </div>
-    </section>
-
+<app-form></app-form>
     <h2>Mis viajes preferidos</h2>
     <hr>
     <!-- <div class="grid" [innerHTML]="getData()"> -->
-    <div class="grid">
-        @for( post of arrPosts; track post.id) {
-        <article>
-            <figure>
-                <img [src]="post.url" alt="post.title">
-            </figure>
-            <h3>{{post.title}}</h3>
-            <p>Autor: {{post.author}}</p>
-            <p>Fecha: {{post.date | date: 'dd/MM/YY'}}</p>
-            <div class="content" [innerHTML]="post.body">
-            </div>
-        </article>
-    }
-    </div>
-
+    <app-post-list></app-post-list>
 </section>
