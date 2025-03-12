@@ -1,5 +1,4 @@
 import { Component, inject } from '@angular/core';
-import { IPost } from '../../interfaces/ipost.interface';
 import { FormsModule } from '@angular/forms';
 import { PostsService } from '../../services/posts.service';
 import { NgxSonnerToaster, toast } from 'ngx-sonner';
@@ -15,10 +14,10 @@ export class FormComponent {
     guardarPost(form: any) {
       if(form.value.title !== "" && form.value.author !== "" && form.value.date !== "" && form.value.body !== "" && form.value.url !== "")  {
         let response = this.postsService.insert(form.value);
-        toast(response);
+        toast.success(response);
         form.reset();
       }else {
-        toast('Todos los campos son obligatorios');
+        toast.error('Todos los campos son obligatorios');
       }
     }
 
